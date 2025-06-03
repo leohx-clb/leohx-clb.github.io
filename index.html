@@ -3,454 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Leonard Maron</title>
+    <title>CV - Léonard Maron</title>
     <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
             color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
         .cv-container {
-            max-width: 900px;
-            margin: 30px auto;
+            width: 210mm;
+            height: 297mm;
             background: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            display: flex;
             overflow: hidden;
+        }
+        
+        .left-column {
+            width: 35%;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 25px 20px;
+        }
+        
+        .right-column {
+            width: 65%;
+            padding: 25px 30px;
+            background: white;
         }
         
         .header {
-            display: flex;
-            background: linear-gradient(135deg, #2c3e50, #4ca1af);
-            color: white;
-            padding: 30px;
+            text-align: center;
+            margin-bottom: 25px;
         }
         
-        .photo-section {
-            margin-right: 30px;
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #3498db;
         }
         
-        .photo-container {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            background-color: #f0f0f0;
-        }
-        
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .name-title {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        h1 {
-            font-size: 36px;
-            margin-bottom: 5px;
+        .title {
+            font-size: 16px;
             font-weight: 600;
-        }
-        
-        h2 {
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            color: #2c3e50;
+            margin-bottom: 15px;
         }
         
         .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 10px;
+            font-size: 11px;
+            line-height: 1.6;
         }
         
-        .contact-item {
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        
-        .contact-item i {
-            margin-right: 8px;
-            font-size: 18px;
-        }
-        
-        .main-content {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-gap: 30px;
-        }
-        
-        .section {
-            margin-bottom: 30px;
+        .contact-info div {
+            margin-bottom: 3px;
         }
         
         .section-title {
-            font-size: 22px;
-            border-bottom: 2px solid #4ca1af;
-            padding-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+            color: #3498db;
+        }
+        
+        .left-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+            color: white;
+        }
+        
+        .description {
+            font-size: 11px;
+            line-height: 1.4;
             margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .experience-item {
+            margin-bottom: 15px;
+        }
+        
+        .job-title {
+            font-size: 12px;
+            font-weight: 700;
             color: #2c3e50;
         }
         
-        .experience-item, .education-item {
-            margin-bottom: 20px;
-        }
-        
-        .job-title, .education-degree {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .company, .school {
-            font-size: 16px;
-            font-weight: 500;
-            color: #4ca1af;
+        .company {
+            font-size: 11px;
+            color: #7f8c8d;
             margin-bottom: 5px;
         }
         
-        .date-location {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 8px;
-            font-style: italic;
+        .job-description {
+            font-size: 10px;
+            line-height: 1.3;
         }
         
-        .job-description ul {
-            padding-left: 20px;
+        .job-description li {
+            margin-bottom: 2px;
+            margin-left: 15px;
         }
         
-        .skills-container, .interests-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 10px;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
         }
         
-        .skill-item, .interest-item {
-            background: #f0f0f0;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-right: 10px;
+        .skill-category {
             margin-bottom: 10px;
-            font-size: 14px;
-            color: #333;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
-        .skill-item {
-            background: #e1f5fe;
+        .skill-category-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 5px;
         }
         
-        .interest-item {
-            background: #e8f5e9;
+        .skill-list {
+            font-size: 10px;
+            line-height: 1.4;
         }
         
-        a {
-            color: inherit;
-            text-decoration: none;
+        .education-item {
+            margin-bottom: 10px;
         }
         
-        a:hover {
-            text-decoration: underline;
+        .degree {
+            font-size: 11px;
+            font-weight: 700;
         }
         
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .photo-section {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                justify-content: center;
-            }
+        .school {
+            font-size: 10px;
+            color: #bdc3c7;
         }
         
-        /* Styles spécifiques pour l'impression */
-        @media print {
-            body {
-                background-color: white;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-            
-            .cv-container {
-                margin: 0;
-                box-shadow: none;
-                border-radius: 0;
-                width: 100%;
-                max-width: 100%;
-                height: 100%;
-            }
-            
-            .header {
-                background: linear-gradient(135deg, #2c3e50, #4ca1af) !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-            
-            .photo-container {
-                border: 4px solid white !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            
-            .skill-item {
-                background: #e1f5fe !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                box-shadow: none;
-            }
-            
-            .interest-item {
-                background: #e8f5e9 !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                box-shadow: none;
-            }
-            
-            .section-title {
-                border-bottom: 2px solid #4ca1af !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            
-            /* Format page */
-            @page {
-                size: A4;
-                margin: 0;
-            }
+        .qualities {
+            font-size: 10px;
+            line-height: 1.5;
+        }
+        
+        .interests {
+            font-size: 10px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            color: #3498db;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
     <div class="cv-container">
-        <div class="header">
-            <div class="photo-section">
-                <div class="photo-container">
-                    <img src="photo.jpg" alt="Leonard Maron">
-                </div>
+        <!-- Colonne de gauche -->
+        <div class="left-column">
+            <div class="left-section-title">CONTACT</div>
+            <div class="contact-info">
+                <div>📍 Grenoble, France</div>
+                <div>📞 06 26 58 43 74</div>
+                <div>✉️ leonard.maron@gmail.com</div>
+                <div>🔗 www.linkedin.com/in/dev-leonard-maron</div>
             </div>
-            <div class="name-title">
-                <h1>Leonard Maron</h1>
-                <h2>Développeur Full-Stack</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i>📱</i>
-                        <span>06 26 58 43 74</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📧</i>
-                        <span>leonard.maron@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📍</i>
-                        <span>Grenoble</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>🔗</i>
-                        <a href="http://www.linkedin.com/in/dev-leonard-maron" target="_blank">LinkedIn</a>
-                    </div>
+            
+            <div class="left-section-title">COMPÉTENCES</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Backend</div>
+                    <div class="skill-list">C# (.NET, ASP.NET)<br>PHP (Symfony)<br>C++</div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="left-column">
-                <div class="section">
-                    <h3 class="section-title">Expériences professionnelles</h3>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Technicien Informatique</div>
-                        <div class="company">GR4 (M réseau)</div>
-                        <div class="date-location">Avril 2025 – Juin 2025</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Déploiement de solutions d'automatisation sur des données avec Microsoft Fabric et Power BI et Azure.</li>
-                                <li>Développement de scripts Python pour la gestion et la transformation des données.</li>
-                                <li>Conception et implémentation de pipelines de données entre Azure Fabric et Power BI pour l'alimentation automatique de tableaux de bord.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Développeur Full-Stack</div>
-                        <div class="company">Corim Solution</div>
-                        <div class="date-location">Novembre 2023 – Avril 2024 | Fontaine</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Migration d'une application GMAO client lourd vers une architecture web (Angular/C#/SQL)</li>
-                                <li>Mise en place et exécution de tests de régression avec Cypress</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Développeur Logiciel</div>
-                        <div class="company">KLS Group</div>
-                        <div class="date-location">Mai 2023 – Octobre 2023 | Meylan</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Développement, maintenance et amélioration de trois applications de gestion de stocks:
-                                    <ul>
-                                        <li>Application PC (C++)</li>
-                                        <li>Application Web (AngularJS)</li>
-                                        <li>Application Mobile (C# Xamarin)</li>
-                                    </ul>
-                                </li>
-                                <li>Suivi des projets selon la méthodologie PRINCE2 Agile</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Développeur Full-Stack</div>
-                        <div class="company">Open</div>
-                        <div class="date-location">Octobre 2022 – Février 2023 | Montbonnot-Saint-Martin</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Adaptation à un environnement Visual Basic</li>
-                                <li>Développement et modification de logiciels pour machines industrielles</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Stagiaire Développeur Full-Stack</div>
-                        <div class="company">Altimet</div>
-                        <div class="date-location">Décembre 2021 – Avril 2022 | Thonon-les-Bains</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Développement d'une application PHP/Symfony pour la gestion de stocks</li>
-                                <li>Travail en autonomie</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Développeur Full-Stack</div>
-                        <div class="company">CGI</div>
-                        <div class="date-location">Août 2018 – Décembre 2018 | Échirolles</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Maintenance d'applications en PHP/JS</li>
-                                <li>Développement de sites d'assurance en C# ASP.NET et VB6</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="job-title">Opérateur en Salle Blanche</div>
-                        <div class="company">ST Microelectronics</div>
-                        <div class="date-location">Janvier 2019 – Juin 2020 et Juillet 2017 – Février 2018</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Travaux en salle blanche</li>
-                                <li>Respect rigoureux des normes de qualité</li>
-                            </ul>
-                        </div>
-                    </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Frontend</div>
+                    <div class="skill-list">Angular, AngularJS<br>JavaScript, TypeScript<br>Bootstrap, CSS3, HTML5</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Bases de données</div>
+                    <div class="skill-list">MySQL, SQL Server</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Outils & DevOps</div>
+                    <div class="skill-list">Git, Docker<br>Azure, Microsoft Fabric<br>Cypress, Power BI</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Automatisation</div>
+                    <div class="skill-list">Python<br>VB.NET, PowerShell</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Méthodes</div>
+                    <div class="skill-list">PRINCE2 Agile, Scrum</div>
                 </div>
             </div>
             
-            <div class="right-column">
-                <div class="section">
-                    <h3 class="section-title">Formation</h3>
-                    
-                    <div class="education-item">
-                        <div class="education-degree">Concepteur Développeur d'Application (RNCP 6)</div>
-                        <div class="school">Human Booster, Lyon</div>
-                        <div class="date-location">2021 - 2022</div>
-                    </div>
-                    
-                    <div class="education-item">
-                        <div class="education-degree">Développeur Web ET Web Mobile (RNCP 3)</div>
-                        <div class="school">Human Booster, Grenoble</div>
-                        <div class="date-location">2018 - 2019</div>
-                    </div>
-                    
-                    <div class="education-item">
-                        <div class="education-degree">BTS Conception de Produits Industriels (CPI)</div>
-                        <div class="school">Lycée Monge, Chambéry</div>
-                        <div class="date-location">2015 - 2017</div>
-                    </div>
-                    
-                    <div class="education-item">
-                        <div class="education-degree">Bac Pro Étude et Définition de Produits Industriels (EDPI)</div>
-                        <div class="school">Lycée Pablo Neruda, Saint-Martin-d'Hères</div>
-                        <div class="date-location">2012 - 2015</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h3 class="section-title">Compétences techniques</h3>
-                    <div class="skills-container">
-                        <div class="skill-item">C#</div>
-                        <div class="skill-item">C++</div>
-                        <div class="skill-item">PHP</div>
-                        <div class="skill-item">JavaScript</div>
-                        <div class="skill-item">Angular</div>
-                        <div class="skill-item">AngularJS</div>
-                        <div class="skill-item">Symfony</div>
-                        <div class="skill-item">ASP.NET</div>
-                        <div class="skill-item">Xamarin</div>
-                        <div class="skill-item">SQL</div>
-                        <div class="skill-item">Cypress</div>
-                        <div class="skill-item">PRINCE2 Agile</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h3 class="section-title">Centres d'intérêts</h3>
-                    <div class="interests-container">
-                        <div class="interest-item">Escalade</div>
-                        <div class="interest-item">Nouvelles technologies</div>
-                        <div class="interest-item">Jeux vidéo</div>
-                        <div class="interest-item">Développement personnel</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h3 class="section-title">Soft Skills</h3>
-                    <div class="interests-container">
-                        <div class="interest-item">Capacité d'adaptation</div>
-                        <div class="interest-item">Flexibilité</div>
-                        <div class="interest-item">Coopération</div>
-                        <div class="interest-item">Curiosité</div>
-                        <div class="interest-item">Créativité</div>
-                    </div>
-                </div>
+            <div class="left-section-title">FORMATION</div>
+            <div class="education-item">
+                <div class="degree">Concepteur Développeur d'Application</div>
+                <div class="school">Human Booster, Lyon (2021-2022)</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree">Développeur Web et Web Mobile</div>
+                <div class="school">Human Booster, Grenoble (2018-2019)</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree">BTS Conception Produits Industriels</div>
+                <div class="school">Lycée Monge, Chambéry (2015-2017)</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree">Bac Pro EDPI</div>
+                <div class="school">Lycée Pablo Neruda, Saint-Martin-d'Hères (2012-2015)</div>
+            </div>
+            
+            <div class="left-section-title">QUALITÉS</div>
+            <div class="qualities">
+                • Autonomie & Proactivité<br>
+                • Rigueur technique<br>
+                • Esprit d'équipe<br>
+                • Polyvalence<br>
+                • Curiosité technologique
+            </div>
+            
+            <div class="left-section-title">CENTRES D'INTÉRÊT</div>
+            <div class="interests">
+                🧗 Escalade<br>
+                🥾 Randonnée/Trekking<br>
+                💻 Veille technologique<br>
+                🎮 Gaming<br>
+                📚 Développement personnel
+            </div>
+        </div>
+        
+        <!-- Colonne de droite -->
+        <div class="right-column">
+            <div class="header">
+                <div class="name">LEONARD MARON</div>
+                <div class="title">DÉVELOPPEUR FULL-STACK</div>
+            </div>
+            
+            <div class="description">
+                Développeur full-stack passionné avec plusieurs expériences en entreprise dans le développement d'applications web, desktop et mobile. Compétent dans plusieurs langages et frameworks modernes, avec une bonne maîtrise des méthodes agiles et gestion de projets.
+            </div>
+            
+            <div class="section-title">EXPÉRIENCE PROFESSIONNELLE</div>
+            
+            <div class="experience-item">
+                <div class="job-title">Technicien Informatique</div>
+                <div class="company">GR4 (M Réseau) • Avril 2025 – En cours</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Automatisation :</span> Scripts Python automatisant des tâches manuelles longues et répétitives</li>
+                    <li><span class="highlight">Analyse de données :</span> Traitement automatisé de fichiers CSV</li>
+                    <li><span class="highlight">Business Intelligence :</span> Dashboards et mise en forme des données sur Power BI connectés à Azure Data Fabric</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Développeur Full-Stack</div>
+                <div class="company">Corim Solution, Fontaine • Novembre 2023 – Avril 2024</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Refonte applicative :</span> Modernisation application GMAO (Angular/TypeScript + .NET)</li>
+                    <li><span class="highlight">Qualité logicielle :</span> Tests automatisés avec Cypress</li>
+                    <li><span class="highlight">Architecture :</span> Conception technique et optimisation des performances</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Développeur Logiciel</div>
+                <div class="company">KLS Group, Meylan • Mai 2023 – Octobre 2023</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Multi-plateformes :</span> Maintenance 3 applications gestion de stocks (Desktop, Web, Mobile)</li>
+                    <li><span class="highlight">Méthodes agiles :</span> Projets sous méthodologie PRINCE2 Agile</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Développeur Full-Stack</div>
+                <div class="company">Open, Montbonnot • Octobre 2022 – Février 2023</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Logiciels industriels :</span> Applications pour machines industrielles (VB.NET/C#)</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Stagiaire Développeur Full-Stack</div>
+                <div class="company">Altimet, Thonon • Décembre 2021 – Avril 2022</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Développement web :</span> Application gestion de stock complète (PHP/Symfony)</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Développeur Web</div>
+                <div class="company">CGI, Échirolles • Août 2018 – Décembre 2018</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Maintenance :</span> Applications PHP/JavaScript, développement ASP.NET et VB6</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Opérateur en Salle Blanche</div>
+                <div class="company">STMicroelectronics • 2017-2018 & 2019-2020</div>
+                <ul class="job-description">
+                    <li><span class="highlight">Environnement contrôlé :</span> Respect rigoureux des normes qualité ISO</li>
+                </ul>
             </div>
         </div>
     </div>
